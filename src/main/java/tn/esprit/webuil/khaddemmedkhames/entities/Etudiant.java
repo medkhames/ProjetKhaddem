@@ -1,10 +1,15 @@
 package tn.esprit.webuil.khaddemmedkhames.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @Table( name = "Etudiant")
 public class Etudiant implements Serializable {
     @Id

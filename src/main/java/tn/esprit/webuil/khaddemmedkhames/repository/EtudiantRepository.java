@@ -6,5 +6,5 @@ import tn.esprit.webuil.khaddemmedkhames.entities.Etudiant;
 import java.util.List;
 
 public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
-    List<Etudiant> findByDepartementIdDepartement(Long idDepartement);
+    //List<Etudiant> findByDepartementIdDepartement(Long idDepartement);
 }

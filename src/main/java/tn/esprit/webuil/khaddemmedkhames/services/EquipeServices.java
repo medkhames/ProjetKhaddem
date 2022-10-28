@@ -35,6 +35,7 @@ public class EquipeServices implements IEquipeServices{
 
     @Override
     public Equipe retrieveEquipe(Integer idEquipe) {
+
         return equipeRepository.findById(idEquipe.longValue()).get();
     }
 
