@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.webuil.khaddemmedkhames.entities.Departement;
 import tn.esprit.webuil.khaddemmedkhames.repository.DepartementRepository;
-import tn.esprit.webuil.khaddemmedkhames.services.DepartementServices;
 import tn.esprit.webuil.khaddemmedkhames.services.IDepartementServices;
 
 import java.util.List;
