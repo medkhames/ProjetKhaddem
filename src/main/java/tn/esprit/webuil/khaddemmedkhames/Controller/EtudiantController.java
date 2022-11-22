@@ -12,6 +12,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/Etudiant")
 public class EtudiantController {
+
+    @PostMapping ("/affecter-etudiant-departement/{idEtudiant}/{idDepartement}")
+    public void assignEtudiantToDepartment(@PathVariable("idEtudiant")Long idEtudiant ,
+                                           @PathVariable("idDepartement")Long idDepartement)
+    {
+        etudiantServices.assignEtudiantToDepartment(idEtudiant,idDepartement);
+    }
     @Autowired
     IEtudiantServices etudiantServices;
     @GetMapping("")
