@@ -3,10 +3,12 @@ package tn.esprit.webuil.khaddemmedkhames.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.webuil.khaddemmedkhames.entities.Departement;
 import tn.esprit.webuil.khaddemmedkhames.entities.Universite;
 import tn.esprit.webuil.khaddemmedkhames.repository.DepartementRepository;
 import tn.esprit.webuil.khaddemmedkhames.repository.UniversiteRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,5 +47,13 @@ public class UniversiteService implements IUniversiteService {
     @Override
     public Optional<Universite> findUniversiteById(Long idUniversite) {
         return universiteRepository.findById(idUniversite);
+    }
+
+    @Transactional
+    public void assignUniversiteToDepartement( Long idUniversite , Long idDepartement){
+        Universite u = universiteRepository.findById(idUniversite).get();
+        Departement d = departementRepository.findById(idDepartement).get();
+        u.getDepartement().add(d);
+        universiteRepository.save(u);
     }
 }

@@ -3,6 +3,7 @@ package tn.esprit.webuil.khaddemmedkhames.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.webuil.khaddemmedkhames.entities.Contrat;
 import tn.esprit.webuil.khaddemmedkhames.entities.Departement;
 import tn.esprit.webuil.khaddemmedkhames.entities.Etudiant;
 import tn.esprit.webuil.khaddemmedkhames.repository.DepartementRepository;
@@ -56,4 +57,6 @@ public class EtudiantServices implements IEtudiantServices {
         e.setDepartement(d);
         etudiantRepository.save(e);
     }
+
+  
 }

@@ -47,4 +47,8 @@ public class UniversiteController {
     public Optional<Universite> GetUniversitybyId(@PathVariable("idUniversite") Long idUniversite){
         return universiteService.findUniversiteById(idUniversite);
     }
+@PutMapping("/aff/{idUniversite}/{idDepartement}")
+    public void affecteruni(@PathVariable("idUniversite") Long idUniversite,@PathVariable("idDepartement") Long idDepartement){
+        universiteService.assignUniversiteToDepartement(idUniversite, idDepartement);
+    }
 }

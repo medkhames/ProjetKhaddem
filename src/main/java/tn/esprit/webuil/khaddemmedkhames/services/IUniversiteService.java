@@ -11,4 +11,5 @@ public interface IUniversiteService {
     public List<Universite> retrieveAllUniversite() ;
     public void removeUniversite(Long idUniversite) ;
     public Optional<Universite> findUniversiteById(Long idUniversite);
+    public void assignUniversiteToDepartement(Long idUniversite , Long idDepartement);
 }
