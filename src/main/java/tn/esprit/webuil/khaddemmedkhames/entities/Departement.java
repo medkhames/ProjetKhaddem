@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,6 +20,6 @@ public class Departement implements Serializable {
 
     private String nomDepartement;
     @OneToMany(cascade = CascadeType.ALL, mappedBy= "departement")
-    private Set<Etudiant> etudiants;
+    private List<Etudiant> etudiants;
 
 }

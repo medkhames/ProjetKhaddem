@@ -15,5 +15,8 @@ public interface IEtudiantServices {
 
     void deleteEtudiant(Long idEtudiant);
 
-    public void assignEtudiantToDepartment(Long idEtudiant,Long idDepartement);
+    public void assignEtudiantToDepartement(Long idEtudiant, Long idDepartement);
+
+
+    Etudiant addAndAssignEtudiantToEquipeAndContract (Etudiant e, Long idContrat , Long idEquipe);
 }

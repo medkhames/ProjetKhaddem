@@ -7,6 +7,7 @@ import tn.esprit.webuil.khaddemmedkhames.entities.Contrat;
 import tn.esprit.webuil.khaddemmedkhames.repository.ContratRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -42,6 +43,11 @@ public class ContratServices implements IContratServices {
     public void deleteContrat(Long idContrat) {
         contratRepository.deleteById(idContrat);
 
+    }
+
+    @Override
+    public Optional<Contrat> findContratById(Long idContrat) {
+        return contratRepository.findById(idContrat);
     }
 
 }

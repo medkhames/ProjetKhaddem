@@ -13,12 +13,12 @@ import java.util.List;
 @RequestMapping("/Etudiant")
 public class EtudiantController {
 
-    @PostMapping ("/affecter-etudiant-departement/{idEtudiant}/{idDepartement}")
+    /*@PostMapping ("/affecter-etudiant-departement/{idEtudiant}/{idDepartement}")
     public void assignEtudiantToDepartment(@PathVariable("idEtudiant")Long idEtudiant ,
                                            @PathVariable("idDepartement")Long idDepartement)
     {
         etudiantServices.assignEtudiantToDepartment(idEtudiant,idDepartement);
-    }
+    }*/
     @Autowired
     IEtudiantServices etudiantServices;
     @GetMapping("")
@@ -59,7 +59,15 @@ public class EtudiantController {
     public void deleteEtudiant(@RequestBody Etudiant e, @PathVariable Long idEtudiant){
         etudiantServices.deleteEtudiant(idEtudiant);
     }
+@PutMapping("/aff/{idEtudiant}/{idDepartement}")
+public void assignEtuToDep(@PathVariable("idEtudiant") Long idEtudiant,@PathVariable("idDepartement") Long idDepartement){
+        etudiantServices.assignEtudiantToDepartement(idEtudiant, idDepartement);
 
+}
+@PutMapping( "/addAndassing/{idEtudiant}/{idEquipe}/{idContrat}")
 
+public void addAndAssingEtudiantToEquipeAndContart(Etudiant e, @PathVariable("idEquipe") Long idEquipe, @PathVariable("idContrat") Long idContrat){
+        etudiantServices.addAndAssignEtudiantToEquipeAndContract(e,idEquipe,idContrat);
+}
 
 }

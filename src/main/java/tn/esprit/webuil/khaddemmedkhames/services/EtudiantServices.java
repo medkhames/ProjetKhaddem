@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.webuil.khaddemmedkhames.entities.Contrat;
 import tn.esprit.webuil.khaddemmedkhames.entities.Departement;
+import tn.esprit.webuil.khaddemmedkhames.entities.Equipe;
 import tn.esprit.webuil.khaddemmedkhames.entities.Etudiant;
+import tn.esprit.webuil.khaddemmedkhames.repository.ContratRepository;
 import tn.esprit.webuil.khaddemmedkhames.repository.DepartementRepository;
+import tn.esprit.webuil.khaddemmedkhames.repository.EquipeRepository;
 import tn.esprit.webuil.khaddemmedkhames.repository.EtudiantRepository;
 
 import javax.transaction.Transactional;
@@ -19,6 +22,11 @@ public class EtudiantServices implements IEtudiantServices {
 
     @Autowired
     EtudiantRepository etudiantRepository;
+    @Autowired
+    ContratRepository contratRepository;
+    @Autowired
+    EquipeRepository equipeRepository;
+    @Autowired
     DepartementRepository departementRepository;
     public List<Etudiant> retrieveAllEtudiant() {
         return etudiantRepository.findAll();
@@ -45,18 +53,28 @@ public class EtudiantServices implements IEtudiantServices {
         etudiantRepository.deleteById(idEtudiant);
     }
 
-    @Override
-    public void assignEtudiantToDepartment(Long idEtudiant, Long idDepartement) {
 
-    }
+
+
 
     @Transactional
     public void assignEtudiantToDepartement(Long idEtudiant, Long idDepartement) {
         Etudiant e = etudiantRepository.findById(idEtudiant).get();
         Departement d =  departementRepository.findById(idDepartement).get();
         e.setDepartement(d);
-        etudiantRepository.save(e);
+
+    }
+@Transactional
+    public Etudiant addAndAssignEtudiantToEquipeAndContract (Etudiant e, Long idContrat , Long idEquipe){
+        Contrat c = contratRepository.findById(idContrat).orElse(null);
+        Equipe eq = equipeRepository.findById(idEquipe).orElse(null);
+
+        c.setEtudiant(e);
+        eq.getEtudiants().add(e);
+        return e;
     }
 
-  
+
+
+
 }
