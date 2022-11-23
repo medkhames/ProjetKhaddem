@@ -66,7 +66,8 @@ public class EtudiantServices implements IEtudiantServices {
     }
 @Transactional
     public Etudiant addAndAssignEtudiantToEquipeAndContract (Etudiant e, Long idContrat , Long idEquipe){
-        Contrat c = contratRepository.findById(idContrat).orElse(null);
+    Etudiant etudiant = etudiantRepository.save(e);
+    Contrat c = contratRepository.findById(idContrat).orElse(null);
         Equipe eq = equipeRepository.findById(idEquipe).orElse(null);
 
         c.setEtudiant(e);

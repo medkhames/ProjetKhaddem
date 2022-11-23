@@ -66,10 +66,11 @@ public void assignEtuToDep(@PathVariable("idEtudiant") Long idEtudiant,@PathVari
         etudiantServices.assignEtudiantToDepartement(idEtudiant, idDepartement);
 
 }
-@PutMapping( "/addAndassing/{idEtudiant}/{idEquipe}/{idContrat}")
+@PostMapping( "/addAndassing/{idEquipe}/{idContrat}")
 
-public void addAndAssingEtudiantToEquipeAndContart(Etudiant e, @PathVariable("idEquipe") Long idEquipe, @PathVariable("idContrat") Long idContrat){
+public void addAndAssingEtudiantToEquipeAndContart(@RequestBody Etudiant e, @PathVariable("idEquipe") Long idEquipe, @PathVariable("idContrat") Long idContrat){
         etudiantServices.addAndAssignEtudiantToEquipeAndContract(e,idEquipe,idContrat);
+
 }
 
 }
