@@ -1,5 +1,6 @@
 package tn.esprit.webuil.khaddemmedkhames.services;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+//@AllArgsConstructor Remplacer tous le Autowired
 @Slf4j
 public class ContratServices implements IContratServices {
     @Autowired

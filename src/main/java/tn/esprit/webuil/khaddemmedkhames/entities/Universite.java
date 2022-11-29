@@ -1,5 +1,6 @@
 package tn.esprit.webuil.khaddemmedkhames.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Universite implements Serializable {
 
     private String nomUniv;
 @OneToMany(cascade = CascadeType.ALL)
+@JsonIgnore
     private Set<Departement> Departement;
 
 

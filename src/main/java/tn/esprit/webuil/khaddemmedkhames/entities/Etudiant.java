@@ -1,5 +1,6 @@
 package tn.esprit.webuil.khaddemmedkhames.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,11 +26,14 @@ public class Etudiant implements Serializable {
     @Enumerated(EnumType.STRING)
     private Option op;
     @ManyToOne
+    @JsonIgnore
     Departement departement;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy= "etudiant")
+    @JsonIgnore
     private Set<Contrat> contrats;
 
     @ManyToMany (cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Equipe> equipes;
 }
